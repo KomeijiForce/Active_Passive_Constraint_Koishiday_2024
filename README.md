@@ -1,5 +1,9 @@
 # Koishiday's 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
 
+# Introduction
+
+![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi.png)
+
 # Preparation
 
 Before your journey, you need to prepare the following stuff:
