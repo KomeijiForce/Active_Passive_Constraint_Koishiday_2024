@@ -83,7 +83,7 @@ We have optimized the GPU usage for implementation. However, you still need a >3
 
 ```rag_top_k```: 4-6, which is shown to perform the best by the analysis.
 
-### Evaluating PRP methods
+### Evaluating Responses with APC score
 
 ## Datasets and Checkpoints
 
