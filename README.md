@@ -75,6 +75,8 @@ We have optimized the GPU usage for implementation. However, you still need a >3
 
 ```model_engine```: "gpt-4", the prompts are written specifically for GPT-4, using other LLMs might cause bugs. 
 
+```use_pretrained_discriminator```: True, generally enabled to reduce the cost of generating the relevance and NLI dataset. (You still have to generate persona statements and user queries!)
+
 ```prp_scale```: "7b", "2b" Gemma model always refuses to do role-playing.
 
 ```max_dpo_data```: 100, which builds the DPO dataset generally in one hour for characters with persona statement numbers around 100.
