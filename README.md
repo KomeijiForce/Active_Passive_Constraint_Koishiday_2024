@@ -117,6 +117,24 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [Ko
 
 The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/deberta-v3-large-nli-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character)
 
+### Statistics of the PRP datasets
+
+| Character | Persona Statements | Questions | Relevance Data | NLI Data |
+|-----------|--------------------|-----------|----------------|----------|
+| Alice     | 8                  | 10        | 64             | 144      |
+| Bob       | 19                 | 10        | 152            | 459      |
+| Eve       | 30                 | 10        | 240            | 545      |
+| Beethoven | 383                | 77        | 3061           | 6774     |
+| Newton    | 354                | 90        | 2832           | 6331     |
+| Socrates  | 324                | 89        | 2591           | 5760     |
+| Spartacus | 77                 | 89        | 616            | 1368     |
+| Hermione  | 146                | 118       | 1167           | 2586     |
+| Voldemort | 201                | 77        | 1608           | 3546     |
+| Cleopatra | 374                | 93        | 2991           | 6660     |
+| Caesar    | 498                | 87        | 3981           | 8856     |
+| Martin Luther King       | 599                | 92        | 4789           | 10644    |
+
+
 ## Todo List
 
 - Support More Languages
