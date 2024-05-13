@@ -67,7 +67,7 @@ bash bash_is_all_you_need.sh
 
 This script builds an APC-based DPO PRP system with RAG for Alice (detailed in ```wiki```) by default. You can find the LoRA weights of the PRP agent in ```prp_models```, the intermediate datasets in ```statement```, and intermediate discriminators in ```discriminators```.
 
-You can build this advanced PRP system for any character you like by simply putting a wiki in ```wiki``` with name ```{character_name}_wiki.txt```. Then replace the ```character``` in the ```bash_is_all_you_need.sh``` and run it. You will find everything you need in the corresponding directories.
+You can build this advanced PRP system for any character you like by simply putting a wiki text (paragraphs separated by "\n\n") in ```wiki``` with name ```{character_name}_wiki.txt```. Then replace the ```character``` in the ```bash_is_all_you_need.sh``` and run it. You will find everything you need in the corresponding directories.
 
 We have optimized the GPU usage for implementation. However, you still need a >32G GPU to run the bash command.
 
