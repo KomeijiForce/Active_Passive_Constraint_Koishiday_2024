@@ -1,4 +1,4 @@
-# Koishiday's 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
+# Koishi's day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
 
 恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
 
@@ -14,13 +14,13 @@
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
 
-![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/case_koishi.png)
+![Case](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/case_koishi.png)
 
 The main reason behind this limitation is the lack of a metric that can quantify the global PRP faithfulness. So I decide to do so following this intuition:
 
 ![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi.png)
 
-
+Briefly speaking, whenever a query comes from a user, each persona statement will become active (relevant to the query) or passive (irrelevant to the query) constraints. To satisfy the active constraint, the response needs to be entailed by the statement **(containing the information in the statement)**. Otherwise, for passive constraints, the response only needs to be not contradicted by them **(not containing information that is incorrect according to the persona statement)**. 
 
 # Preparation
 
