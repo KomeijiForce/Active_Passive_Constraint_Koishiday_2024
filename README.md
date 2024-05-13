@@ -46,7 +46,7 @@ Before your journey, you need to prepare the following stuff:
 
 3. Create a Huggingface account and create a Huggingface Token for reading following the instructions on this [page](https://huggingface.co/settings/tokens).
 
-4. Gain access to Gemma models following the instructions on this [page](https://huggingface.co/google/gemma-1.1-7b-it).
+4. My implementation is based on Gemma-1.1-7b-it, so you have to gain access to Gemma models following the instructions on this [page](https://huggingface.co/google/gemma-1.1-7b-it).
 
 Then you can create an environment and install the required Python packages:
 
