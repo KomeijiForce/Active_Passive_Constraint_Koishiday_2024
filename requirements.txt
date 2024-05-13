@@ -1,0 +1,8 @@
+torch==2.2.1
+transformers==4.40.0
+numpy==1.23.5
+pandas==2.0.3
+tqdm==4.65.0
+peft==0.10.0
+openai==0.28.1
+datasets==2.15.0
