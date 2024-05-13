@@ -10,7 +10,11 @@
 
 - 幻想を現に
 
-# Introduction
+## Anchors
+
+If you are interested in the implementation: [Introduction](##introduction)
+
+## Introduction
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
 
@@ -36,7 +40,7 @@ If you hate formulas, the only thing you need to know is that we need two probab
 
 Thus, we use the pipeline above to build such estimators by distilling from GPT-4 with synthesized datasets. So far, the puzzle for global PRP faithfulness quantification and optimization is completed, let's begin our journey to build faithful PRP agents, and be of good cheer!
 
-# Preparation
+## Preparation
 
 Before your journey, you need to prepare the following stuff:
 
@@ -56,7 +60,7 @@ conda activate apc
 python -m pip install -r requirements.txt
 ```
 
-# Quick Start
+## Quick Start
 
 I have formalized the learning scenario for the most faithful persona-driven role-playing agent as a simple bash command. You only have to replace the ```openai_key``` and ```hf_token``` in ```bash_is_all_you_need.sh``` with your own, and then run
 ```bash
