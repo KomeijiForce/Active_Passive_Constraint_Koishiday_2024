@@ -3,6 +3,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Parser for APC-based DPO.')
 
 parser.add_argument('--api_key', type=str)
+parser.add_argument('--hf_token', type=str)
 parser.add_argument('--character', type=str)
 parser.add_argument('--model_engine', type=str)
 parser.add_argument('--relevance_finetune_epoch', type=int)
@@ -20,7 +21,7 @@ import os
 
 os.environ["CUDA_VISIBLE_DEVICES"] = args.device
 os.environ["WANDB_DISABLED"] = "true"
-os.environ["HF_TOKEN"] = "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"
+os.environ["HF_TOKEN"] = args.hf_token
 
 import openai
 import json

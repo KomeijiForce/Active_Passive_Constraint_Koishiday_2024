@@ -8,5 +8,5 @@ python main.py --api_key "your_api_key"\
 	--max_dpo_data 100\
 	--lora_rank 128\
 	--prp_dpo_epoch 10\
-	--prp_scale "2b"\
+	--prp_scale "7b"\
 	--device "0"
