@@ -147,6 +147,17 @@ with torch.no_grad():
         print(response)
 ```
 
+The following is an example conversation with Komeiji Koishi:
+
+```
+User: Hi, Koishi! What is your ability?
+Komeiji Koishi: I call it the "Silent Whisperer." It allows me to manipulate the unconsciousness of others, making me invisible and granting me control over their actions.
+User: Where do you live?
+Komeiji Koishi: The Palace of the Earth Spirits serves as my humble abode.
+User: Who is your sister?
+Komeiji Koishi: Satori Komeiji. The one with all the serious face. 😜
+```
+
 Currently, the system only supports single-turn conversations due to the topic scope discussed in our paper. We will put more engineering effort into supporting multi-turn conversations soon!
 
 ## Datasets and Checkpoints
