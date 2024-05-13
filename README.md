@@ -58,6 +58,8 @@ python -m pip install -r requirements.txt
 
 ## Quick Start
 
+### Learning RAG models with APC-based DPO
+
 I have formalized the learning scenario for the most faithful persona-driven role-playing agent as a simple bash command. You only have to replace the ```openai_key``` and ```hf_token``` in ```bash_is_all_you_need.sh``` with your own, and then run
 ```bash
 bash bash_is_all_you_need.sh
@@ -69,4 +71,24 @@ You can build this advanced PRP system for any character you like by simply putt
 
 We have optimized the GPU usage for implementation. However, you still need a >32G GPU to run the bash command.
 
+- Hyperparameter Suggestions
+
+```prp_scale```: "7b", "2b" Gemma model always refuse to do role-playing.
+
+```max_dpo_data```: 100, which builds the dpo dataset generally in one hour for characters with persona statement number around 100.
+
+```lora_rank```: >= 32, lower LoRA rank will hurt the role-playing performance.
+
+```rag_top_k```: 4-6, which is shown to perform the best by the analysis.
+
+### Evaluating PRP methods
+
 ## Datasets and Checkpoints
+
+The synthesized dataset for statement-query relevance: [KomeijiForce/role-playing-apc-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-relevance)
+
+The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli)
+
+The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character)
+
+The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response relevance: [KomeijiForce/deberta-v3-large-nli-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character)
