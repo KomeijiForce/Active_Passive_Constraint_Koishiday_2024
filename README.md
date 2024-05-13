@@ -4,6 +4,12 @@
 
 こいしの日2024： ペルソナ主導のロールプレイングにおける全体的忠実度の定量化および最適化
 
+- Let there be fantasy
+
+- 让幻想照进现实
+
+- 幻想を現に
+
 # Introduction
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
