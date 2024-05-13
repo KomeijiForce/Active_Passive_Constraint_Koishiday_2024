@@ -5,7 +5,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 from prp_model import retrieval_augmented_generate
 from classifier import get_relevance_discriminator
 
-character = "Your Character"
+character = "Komeiji Koishi"
 
 statements = [data["statement"] for data in json.load(open(f"statement/{character}.json"))]
 
