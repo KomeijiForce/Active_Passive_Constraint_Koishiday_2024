@@ -10,10 +10,6 @@
 
 - 幻想を現に
 
-## Anchors
-
-If you are interested in the implementation: [Introduction](##introduction)
-
 ## Introduction
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
@@ -72,3 +68,5 @@ This script builds an APC-based DPO PRP system with RAG for Alice (detailed in `
 You can build this advanced PRP system for any character you like by simply putting a wiki in ```wiki``` with name ```{character_name}_wiki.txt```. Then replace the ```character``` in the ```bash_is_all_you_need.sh``` and run it. You will find everything you need in the corresponding directories.
 
 We have optimized the GPU usage for implementation. However, you still need a >32G GPU to run the bash command.
+
+## Datasets and Checkpoints
