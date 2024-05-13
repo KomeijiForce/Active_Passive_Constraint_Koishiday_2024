@@ -67,7 +67,11 @@ class Classifier:
                 
         return acc
     
-def get_relevance_discriminator(character, statement_query_relevance_dataset, relevance_finetune_epoch):
+def get_relevance_discriminator(character, statement_query_relevance_dataset, relevance_finetune_epoch, use_pretrained_discriminator):
+    
+    if use_pretrained_discriminator:
+        
+        return Classifier(model_name=f'KomeijiForce/deberta-v3-large-relevance-12character', device='cuda:0', num_labels=2)
     
     if os.path.isdir(f'discriminators/deberta-v3-large-{character}-relevance'):
         
@@ -89,7 +93,11 @@ def get_relevance_discriminator(character, statement_query_relevance_dataset, re
         
     return relevance_discriminator
 
-def get_nli_discriminator(character, statement_to_response_nli_v2_dataset, nli_finetune_epoch):
+def get_nli_discriminator(character, statement_to_response_nli_v2_dataset, nli_finetune_epoch, use_pretrained_discriminator):
+    
+    if use_pretrained_discriminator:
+        
+        return Classifier(model_name=f'KomeijiForce/deberta-v3-large-nli-12character', device='cuda:0', num_labels=3)
     
     if os.path.isdir(f'discriminators/deberta-v3-large-{character}-nli'):
         

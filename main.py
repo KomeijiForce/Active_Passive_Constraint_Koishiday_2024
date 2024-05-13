@@ -6,6 +6,7 @@ parser.add_argument('--api_key', type=str)
 parser.add_argument('--hf_token', type=str)
 parser.add_argument('--character', type=str)
 parser.add_argument('--model_engine', type=str)
+parser.add_argument('--use_pretrained_discriminator', action='store_true')
 parser.add_argument('--relevance_finetune_epoch', type=int)
 parser.add_argument('--rag_top_k', type=int)
 parser.add_argument('--nli_finetune_epoch', type=int)
@@ -48,6 +49,7 @@ from prp_model import load_generator, generate_rag_dpo_dataset, train_prp
 api_key = args.api_key
 character = args.character
 model_engine = args.model_engine
+use_pretrained_discriminator = args.use_pretrained_discriminator
 relevance_finetune_epoch = args.relevance_finetune_epoch
 rag_top_k = args.rag_top_k
 nli_finetune_epoch = args.nli_finetune_epoch
@@ -62,14 +64,19 @@ openai.api_key = api_key
 
 persona_statement_dataset = convert_to_statement(character, model_engine)
 relevant_query_dataset = build_relevant_query_dataset(character, persona_statement_dataset, model_engine)
-statement_query_relevance_dataset = build_statement_query_relevance_dataset(character, relevant_query_dataset, model_engine)
-statement_to_response_nli_dataset = build_statement_to_response_nli_dataset(character, relevant_query_dataset, model_engine)
-statement_to_response_nli_v2_dataset = discriminate_statement_to_response_nli_dataset(character, statement_to_response_nli_dataset, model_engine)
+if not use_pretrained_discriminator:
+    statement_query_relevance_dataset = build_statement_query_relevance_dataset(character, relevant_query_dataset, model_engine)
+    statement_to_response_nli_dataset = build_statement_to_response_nli_dataset(character, relevant_query_dataset, model_engine)
+    statement_to_response_nli_v2_dataset = discriminate_statement_to_response_nli_dataset(character, statement_to_response_nli_dataset, model_engine)
+else:
+    statement_query_relevance_dataset = None
+    statement_to_response_nli_dataset = None
+    statement_to_response_nli_v2_dataset = None
 
 # Stage 2: Discriminator Fine-tuning
 
-relevance_discriminator = get_relevance_discriminator(character, statement_query_relevance_dataset, relevance_finetune_epoch)
-nli_discriminator = get_nli_discriminator(character, statement_to_response_nli_v2_dataset, nli_finetune_epoch)
+relevance_discriminator = get_relevance_discriminator(character, statement_query_relevance_dataset, relevance_finetune_epoch, use_pretrained_discriminator)
+nli_discriminator = get_nli_discriminator(character, statement_to_response_nli_v2_dataset, nli_finetune_epoch, use_pretrained_discriminator)
 
 # Stage 3: APC-based DPO
 
