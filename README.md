@@ -1,4 +1,4 @@
-# Koishi's day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
+# Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
 
 恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
 
@@ -20,7 +20,21 @@ The main reason behind this limitation is the lack of a metric that can quantify
 
 ![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi.png)
 
-Briefly speaking, whenever a query comes from a user, each persona statement will become active (relevant to the query) or passive (irrelevant to the query) constraints. To satisfy the active constraint, the response needs to be entailed by the statement **(containing the information in the statement)**. Otherwise, for passive constraints, the response only needs to be not contradicted by them **(not containing information that is incorrect according to the persona statement)**. 
+Briefly speaking, whenever a query comes from a user, each persona statement will become an active (relevant to the query) or passive (irrelevant to the query) constraint. To satisfy the active constraint, the response needs to be entailed by the statement **(containing the information in the statement)**. Otherwise, for passive constraints, the response only needs to be not contradicted by them **(not containing information that is incorrect according to the persona statement)**. 
+
+![DPO](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/dpo_koishi.png)
+
+We traverse through all persona statements and see whether their constraints are satisfied or not. We count the number of satisfied constraints, which is used as the metric to evaluate the global PRP faithfulness. This metric is named as Active-Passive-Constraint (APC) score. [Direct preference optimization (DPO)](https://arxiv.org/abs/2305.18290) is a method that can encourage models to perform more like responses preferred by humans or criteria. Thus, we can sample two responses to the same query and then apply DPO based on their APC scores to encourage the PRP agent to be globally more faithful to persona statements. 
+
+In practice, the APC scores are assigned by probabilistic models towards a more accurate estimation, the statement-query relevance probability and the statement-to-response natural language inference probability, formalized as follows,
+
+![Formula](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_formula.png)
+
+If you hate formulas, the only thing you need to know is that we need two probabilistic estimators for **relevance** and **NLI**.
+
+![Distillation](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/distillation_koishi.png)
+
+Thus, we use the pipeline above to build such estimators by distilling from GPT-4 with synthesized datasets. So far, the puzzle for global PRP faithfulness quantification and optimization is completed, let's begin our journey to build faithful PRP agents, and be of good cheer!
 
 # Preparation
 
