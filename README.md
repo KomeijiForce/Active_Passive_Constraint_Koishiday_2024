@@ -265,9 +265,9 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
     <tr>
       <td>LCM</td>
       <td>2.8 (+0.2)</td>
-      <td>2.2 (+0.8)</td>
-      <td>7.6 (+0.8)</td>
-      <td>5.3 (+0.8)</td>
+      <td><b>2.2 (+0.8)</b></td>
+      <td><b>7.6 (+0.8)</b></td>
+      <td><b>5.3 (+0.8)</b></td>
       <td>2.5 (+0.3)</td>
       <td>7.8 (+0.6)</td>
       <td>5.1 (+1.2)</td>
@@ -276,15 +276,15 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
     </tr>
     <tr>
       <td>RAG</td>
-      <td>2.9 (+0.1)</td>
-      <td>2.2 (+0.4)</td>
-      <td>7.6 (+0.8)</td>
+      <td><b>2.9 (+0.1)</b></td>
+      <td><b>2.2 (+0.4)</b></td>
+      <td><b>7.6 (+0.8)</b></td>
       <td>5.2 (+1.2)</td>
-      <td>3.8 (+2.1)</td>
-      <td>8.2 (+1.2)</td>
-      <td>5.8 (+1.0)</td>
-      <td>4.2 (+1.8)</td>
-      <td>7.0 (+1.2)</td>
+      <td><b>3.8 (+2.1)</b></td>
+      <td><b>8.2 (+1.2)</b></td>
+      <td><b>5.8 (+1.0)</b></td>
+      <td><b>4.2 (+1.8)</b></td>
+      <td><b>7.0 (+1.2)</b></td>
     </tr>
   </tbody>
 </table>
