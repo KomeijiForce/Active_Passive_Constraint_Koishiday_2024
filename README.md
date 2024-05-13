@@ -176,6 +176,121 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
 | Caesar    | 498                | 87        | 3981           | 8856     |
 | Martin Luther King       | 599                | 92        | 4789           | 10644    |
 
+### Performance
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">Character</th>
+      <th rowspan="2">Metric </th>
+      <th colspan="3">Alice</th>
+      <th colspan="3">Bob</th>
+      <th colspan="3">Eve</th>
+    </tr>
+    <tr>
+      <th>ΔAPC (DeB)</th>
+      <th>ΔAPC (GPT-4)</th>
+      <th>Human</th>
+      <th>ΔAPC (DeB)</th>
+      <th>ΔAPC (GPT-4)</th>
+      <th>Human</th>
+      <th>ΔAPC (DeB)</th>
+      <th>ΔAPC (GPT-4)</th>
+      <th>Human</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="4" style="writing-mode: vertical-lr; text-align: center;">w/o APC-based DPO</td>
+      <td>Gemma-7B</td>
+      <td>0.7</td>
+      <td>0.3</td>
+      <td>1.8</td>
+      <td>1.1</td>
+      <td>0.4</td>
+      <td>1.8</td>
+      <td>0.7</td>
+      <td>-0.2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <td>EU</td>
+      <td>2.6</td>
+      <td>1.1</td>
+      <td>6.4</td>
+      <td>3.4</td>
+      <td>1.1</td>
+      <td>6.2</td>
+      <td>3.6</td>
+      <td>0.7</td>
+      <td>4.6</td>
+    </tr>
+    <tr>
+      <td>LCM</td>
+      <td>2.6</td>
+      <td>1.4</td>
+      <td>6.8</td>
+      <td>4.5</td>
+      <td>2.2</td>
+      <td>7.2</td>
+      <td>3.9</td>
+      <td>0.7</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <td>RAG</td>
+      <td>2.8</td>
+      <td>1.8</td>
+      <td>6.8</td>
+      <td>4.0</td>
+      <td>1.7</td>
+      <td>6.8</td>
+      <td>4.8</td>
+      <td>2.4</td>
+      <td>5.8</td>
+    </tr>
+    <tr>
+      <td rowspan="6" style="writing-mode: vertical-lr; text-align: center;">w/ APC-based DPO</td>
+      <td>EU</td>
+      <td>2.7 (+0.1)</td>
+      <td>1.4 (+0.3)</td>
+      <td>6.8 (+0.4)</td>
+      <td>3.8 (+0.4)</td>
+      <td>1.8 (+0.7)</td>
+      <td>6.8 (+0.6)</td>
+      <td>3.9 (+0.3)</td>
+      <td>0.9 (+0.2)</td>
+      <td>5.2 (+0.6)</td>
+    </tr>
+    <tr>
+      <td>LCM</td>
+      <td>2.8 (+0.2)</td>
+      <td>2.2 (+0.8)</td>
+      <td>7.6 (+0.8)</td>
+      <td>5.3 (+0.8)</td>
+      <td>2.5 (+0.3)</td>
+      <td>7.8 (+0.6)</td>
+      <td>5.1 (+1.2)</td>
+      <td>3.3 (+2.6)</td>
+      <td>6.6 (+1.6)</td>
+    </tr>
+    <tr>
+      <td>RAG</td>
+      <td>2.9 (+0.1)</td>
+      <td>2.2 (+0.4)</td>
+      <td>7.6 (+0.8)</td>
+      <td>5.2 (+1.2)</td>
+      <td>3.8 (+2.1)</td>
+      <td>8.2 (+1.2)</td>
+      <td>5.8 (+1.0)</td>
+      <td>4.2 (+1.8)</td>
+      <td>7.0 (+1.2)</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
 
 ## Todo List
 
