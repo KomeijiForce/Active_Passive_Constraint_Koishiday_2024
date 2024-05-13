@@ -73,9 +73,11 @@ We have optimized the GPU usage for implementation. However, you still need a >3
 
 - Hyperparameter Suggestions
 
-```prp_scale```: "7b", "2b" Gemma model always refuse to do role-playing.
+```model_engine```: "gpt-4", the prompts are written specifically for GPT-4, using other LLMs might cause bugs. 
 
-```max_dpo_data```: 100, which builds the dpo dataset generally in one hour for characters with persona statement number around 100.
+```prp_scale```: "7b", "2b" Gemma model always refuses to do role-playing.
+
+```max_dpo_data```: 100, which builds the DPO dataset generally in one hour for characters with persona statement numbers around 100.
 
 ```lora_rank```: >= 32, lower LoRA rank will hurt the role-playing performance.
 
