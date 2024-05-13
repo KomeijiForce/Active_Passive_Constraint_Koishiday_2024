@@ -1,8 +1,20 @@
 # Koishiday's 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
 
+恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
+
+こいしの日2024： ペルソナ主導のロールプレイングにおける全体的忠実度の定量化および最適化
+
 # Introduction
 
+Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
+
+![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/case_koishi.png)
+
+The main reason behind this limitation is the lack of a metric that can quantify the global PRP faithfulness. So I decide to do so following this intuition:
+
 ![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi.png)
+
+
 
 # Preparation
 
