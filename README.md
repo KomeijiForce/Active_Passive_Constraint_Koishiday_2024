@@ -93,4 +93,10 @@ The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playin
 
 The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character)
 
-The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response relevance: [KomeijiForce/deberta-v3-large-nli-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character)
+The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/deberta-v3-large-nli-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character)
+
+## Todo List
+
+- Support More Languages
+- Support Multi-turn Conversations
+- Allow more Customized Training Setups
