@@ -43,7 +43,7 @@ def score_nli(character, statement, query, response, discriminator):
         prompt = fill_in_nli_discrimination_template(character, statement, query, response)
     
         response = openai.ChatCompletion.create(
-        model=model_engine,
+        model=discriminator,
         temperature=0.0,
         messages=[
             {"role": "system", "content": system_prompt},
