@@ -46,6 +46,9 @@ from prompt import (convert_to_statement, build_relevant_query_dataset, build_st
 from score import score_APC
 from prp_model import load_generator, generate_rag_dpo_dataset, train_prp
 
+if not os.path.exists("statement"):
+    os.makedirs("statement")
+
 api_key = args.api_key
 character = args.character
 model_engine = args.model_engine
