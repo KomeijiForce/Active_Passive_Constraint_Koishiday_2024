@@ -1,5 +1,4 @@
 # Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
-
 恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
 
 こいしの日2024： ペルソナ主導のロールプレイングにおける全体的忠実度の定量化および最適化
@@ -10,7 +9,7 @@
 
 - 幻想を現に
 
-## Introduction
+## Introduction [\[Paper\]](https://arxiv.org/abs/2405.07726)
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
 
@@ -308,3 +307,12 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
 - Support More Languages
 - Support Multi-turn Conversations
 - Allow more Customized Training Setups
+
+## Citation
+
+@article{apc4prp,
+  title={Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing},
+  author={Peng, Letian and Shang, Jingbo},
+  journal={arXiv preprint arXiv:2405.07726},
+  year={2024}
+}
