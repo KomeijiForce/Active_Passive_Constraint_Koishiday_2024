@@ -1,7 +1,6 @@
 # Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
-恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
 
-こいしの日2024： ペルソナ主導のロールプレイングにおける全体的忠実度の定量化および最適化
+[[English](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/README.md) | [中文](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/README_ZH.md)]
 
 - Let there be fantasy
 
