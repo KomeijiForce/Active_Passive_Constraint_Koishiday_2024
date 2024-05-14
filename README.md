@@ -161,9 +161,9 @@ Currently, the system only supports single-turn conversations due to the topic s
 
 ## Datasets and Checkpoints
 
-The synthesized dataset for statement-query relevance: [KomeijiForce/role-playing-apc-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-relevance)
+The synthesized dataset for statement-query relevance: [KomeijiForce/role-playing-apc-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-relevance) (English), [KomeijiForce/role-playing-apc-multilingual-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-relevance) (Multilingual)
 
-The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli)
+The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli) (English), [KomeijiForce/role-playing-apc-multilingual-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-nli) (Multilingual)
 
 The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character)
 
