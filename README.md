@@ -1,4 +1,4 @@
-# Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
+# Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing [\[Paper\]](https://arxiv.org/abs/2405.07726)
 
 恋之日2024： 人设主导的角色扮演任务的全局准确性的量化和优化
 
