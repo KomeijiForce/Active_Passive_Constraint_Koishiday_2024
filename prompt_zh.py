@@ -18,16 +18,14 @@ def convert_to_statement_zh(character, model_engine):
     if os.path.exists(f"statement/{character}.json"):
         return json.load(open(f"statement/{character}.json"))
 
-    icl_character = "Beethoven"
-    icl_passage = '''Ludwig van Beethoven[n 1] (baptised 17 December 1770 – 26 March 1827) was a German composer and pianist. He is one of the most revered figures in the history of Western music; his works rank among the most performed of the classical music repertoire and span the transition from the Classical period to the Romantic era in classical music. Beethoven's career has conventionally been divided into early, middle, and late periods. His early period, during which he forged his craft, is typically considered to have lasted until 1802. From 1802 to around 1812, his middle period showed an individual development from the styles of Joseph Haydn and Wolfgang Amadeus Mozart, and is sometimes characterized as heroic. During this time, he began to grow increasingly deaf. In his late period, from 1812 to 1827, he extended his innovations in musical form and expression.'''
-    icl_output = '''- Beethoven was a German composer and pianist born on 17 December 1770.
-    - Beethoven's works are highly celebrated in the Western music history, spanning the transition from the Classical period to the Romantic era.
-    - Beethoven's career is often segmented into early, middle, and late periods by music historians.
-    - The early period of Beethoven's career, up until 1802, involved him honing his musical talents.
-    - During the middle period, from 1802 to around 1812, Beethoven developed a distinct style that diverged from Joseph Haydn and Wolfgang Amadeus Mozart.
-    - This middle period of Beethoven's career is sometimes labeled as "heroic."
-    - Beethoven began to experience significant hearing loss during his middle period.
-    - Beethoven's late period, from 1812 until his death on 26 March 1827, featured further innovation in musical form and expression.'''
+    icl_character = "贝多芬"
+    icl_passage = '''路德维希·范·贝多芬（德语：Ludwig van Beethoven；1770年12月16日—1827年3月26日），德意志作曲家、钢琴演奏家。贝多芬上承古典乐派传统，下启浪漫乐派之风格与精神，因而在音乐史上占有重要的地位。[1]贝多芬虽然经历听力下降，仍一直创作音乐，他一生创作了9部交响曲、36首钢琴奏鸣曲（其中32首带有编号，1首未完成，编号为WoO. 51）、10部小提琴奏鸣曲、16首弦乐四重奏、1部歌剧及2部弥撒曲等等。这些作品无论是在曲式、和声以及织体上都有重大创新，影响了音乐发展史，其中32首钢琴奏鸣曲，第三、五、六、九交响曲和《庄严弥撒》是其代表作，尤其闻名。1827年贝多芬因病逝世。在汉字文化圈，贝多芬有“乐圣”之尊称[2][3]。'''
+    icl_output = '''- 贝多芬是一位德意志作曲家和钢琴演奏家，代表着音乐历史上从古典到浪漫的过渡。
+- 贝多芬在经历听力丧失后，仍持续创作出众多影响深远的音乐作品。
+- 贝多芬的作品包括9部交响曲、36首钢琴奏鸣曲、10部小提琴奏鸣曲以及其他重要作品，展现了曲式和和声上的重大创新。
+- 贝多芬的第三、五、六和九交响曲以及《庄严弥撒》等作品尤为著名，体现了他在音乐上的杰出成就。
+- 贝多芬因病逝世于1827年，但他的音乐遗产至今仍对世界音乐产生深远影响。
+- 在汉字文化圈中，贝多芬被尊称为“乐圣”，体现了他在音乐史上的崇高地位。'''
 
     icl = [
         {"role": "user", "content": fill_in_convert_to_statement_template_zh(icl_character, icl_passage)},
@@ -105,7 +103,7 @@ def build_relevant_query_dataset_zh(character, persona_statement_dataset, model_
 
             dataset.append(data)
 
-            bar.set_description(f"Generating Relevant Queries... Number of Queries: {n_query}")
+            bar.set_description(f"正在生成相关的提问... 提问数量: {n_query}")
             
         except:
             pass
@@ -166,7 +164,7 @@ def build_statement_query_relevance_dataset_zh(character, relevant_query_dataset
             except:
                 pass
                 
-        bar.set_description(f"Discriminating Queries... Number of Queries: {len(new_dataset)}")
+        bar.set_description(f"正在生成提问相关性分类数据集... 数据集大小： {len(new_dataset)}")
         
     json.dump(new_dataset, open(f"statement/{character}.relevance.json", "w"))
                 
@@ -232,7 +230,7 @@ def build_statement_to_response_nli_dataset_zh(character, relevant_query_dataset
 
                 new_dataset.append(new_data)
 
-                bar.set_description(f"Generating NLI Data... Number of NLI Data: {n_nli}")
+                bar.set_description(f"正在生成人设对回应的自然语言推理分类数据集... 数据集大小： {n_nli}")
             
             except:
                 pass
@@ -333,7 +331,7 @@ def discriminate_statement_to_response_nli_dataset_zh(character, statement_to_re
             except:
                 pass
 
-        bar.set_description(f"Generating NLI V2 Data... Number of NLI Data: {len(new_dataset)}")
+        bar.set_description(f"正在生成人设对回应的自然语言推理分类数据集V2... 数据集大小： {len(new_dataset)}")
             
     json.dump(new_dataset, open(f"statement/{character}.nli.v2.json", "w"))
     
