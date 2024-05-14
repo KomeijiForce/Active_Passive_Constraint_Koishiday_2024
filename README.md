@@ -165,9 +165,9 @@ The synthesized dataset for statement-query relevance: [KomeijiForce/role-playin
 
 The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli) (English), [KomeijiForce/role-playing-apc-multilingual-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-nli) (Multilingual)
 
-The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character)
+The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character) (English), [KomeijiForce/xlm-roberta-large-relevance-multilingual-12character](https://huggingface.co/datasets/KomeijiForce/xlm-roberta-large-relevance-multilingual-12character) (Multilingual)
 
-The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/deberta-v3-large-nli-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character)
+The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/xlm-roberta-large-nli-multilingual-12character](https://huggingface.co/KomeijiForce/xlm-roberta-large-nli-multilingual-12character)
 
 ### Statistics of the PRP datasets
 
