@@ -6,7 +6,7 @@ import numpy as np
 from tqdm import tqdm
 
 def fill_in_convert_to_statement_template_zh(character, passage):
-    
+
     return f'''给定关于“{character}”的段落：
 
 {passage}
