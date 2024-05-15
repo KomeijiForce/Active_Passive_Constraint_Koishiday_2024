@@ -63,6 +63,12 @@ This script builds an APC-based DPO PRP system with RAG for Alice (detailed in `
 
 You can build this advanced PRP system for any character you like by simply putting a wiki text (paragraphs separated by "\n\n") in ```wiki``` with name ```{character_name}_wiki.txt```. Then replace the ```character``` in the ```bash_is_all_you_need.sh``` and run it. You will find everything you need in the corresponding directories.
 
+For Chinese characters, please use 
+
+```bash
+bash bash_is_all_you_need_for_chinese.sh
+```
+
 We have optimized the GPU usage for implementation. However, you still need a >40G GPU to run the bash command.
 
 - Hyperparameter Suggestions
