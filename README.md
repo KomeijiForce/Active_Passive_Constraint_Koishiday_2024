@@ -305,7 +305,7 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
 
 ## Todo List
 
-- Support More Languages
+- Support More Languages 5/15: Chinese characters are supported.
 - Support Multi-turn Conversations
 - Allow more Customized Training Setups
 
