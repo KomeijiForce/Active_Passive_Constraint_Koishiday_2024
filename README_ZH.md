@@ -6,15 +6,15 @@
 
 以人设为驱动的角色扮演（Persona-driven Role-playing, PRP）允许你仅用几段简短的文字来描述一个AI角色的人设！然而，让AI角色忠实地遵守所有人设陈述是非常困难的。AI角色总是犯很多错误，或者在他们应该知道的知识上总是模棱两可。
 
-![Case](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/case_koishi.png)
+![Case](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/case_koishi_zh.png)
 
 这其中的主要原因是缺乏一个可以量化全球PRP忠诚度的指标。因此，我决定按照人类直觉来设计忠诚度的衡量指标:
 
-![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi.png)
+![APC](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/apc_koishi_zh.png)
 
 简单来说，每当用户输入语句时，每个人设陈述将成为一个主动的（与用户语句相关）或被动的（与用户语句无关）约束。为了满足主动约束，回应需要由该人设所蕴含（包含该人设中的信息）。否则，对于被动约束，回应只需不与它们相矛盾（不包含与人设相违的信息）。
 
-![DPO](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/dpo_koishi.png)
+![DPO](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/dpo_koishi_zh.png)
 
 我们将遍历所有人设陈述，并检查它们的约束是否得到满足。我们将计数满足的约束数量，用作评估全局PRP忠诚度的指标。这个指标被称为主动-被动约束（Active-Passive-Constraint, APC）得分。直接偏好优化（Direct Preference Optimization, DPO）是一种可以鼓励模型更符合人类或标准偏好的回应的方法。因此，我们可以针对同一用户语句抽样两个回应，然后根据它们的APC得分应用DPO，以鼓励PRP模型地更忠诚于全局人设陈述。
 
@@ -24,7 +24,7 @@
 
 如果你不喜欢公式，你只需要知道我们需要两个概率估计器来评估相关性和自然语言推理（NLI）。
 
-![Distillation](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/distillation_koishi.png)
+![Distillation](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/images/distillation_koishi_zh.png)
 
 因此，我们使用上述流程通过从GPT-4提炼和合成数据集来构建这样的估计器。到目前为止，全球PRP忠诚度量化和优化的难题已经解决，让我们开始我们构建忠诚PRP代理的旅程，be of good cheer!
 
