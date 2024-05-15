@@ -300,9 +300,11 @@ Komeiji Koishi: Satori Komeiji. The one with all the serious face. 😜
 
 ## 引用
 
+```bibtex
 @article{apc4prp,
   title={Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing},
   author={Peng, Letian and Shang, Jingbo},
   journal={arXiv preprint arXiv:2405.07726},
   year={2024}
 }
+```
