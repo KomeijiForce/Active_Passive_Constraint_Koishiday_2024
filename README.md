@@ -1,4 +1,4 @@
-# Koishi's Day 2024: Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
+# [Koishi's Day 2024](https://danbooru.donmai.us/wiki_pages/koishi_day): Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing
 
 [[English](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/README.md) | [中文](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/README_ZH.md) | [日本語](https://github.com/KomeijiForce/Active_Passive_Constraint_Koishiday_2024/blob/main/README_JA.md)]
 
