@@ -152,17 +152,16 @@ Komeiji Koishi: Satori Komeiji. The one with all the serious face. 😜
 
 ## 数据集和模型
 
-合成的人设-用户语句相关性数据集: [KomeijiForce/role-playing-apc-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-relevance) (English), [KomeijiForce/role-playing-apc-multilingual-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-relevance) (Multilingual)
+合成的人设-用户语句相关性数据集: [KomeijiForce/role-playing-apc-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-relevance) (英文), [KomeijiForce/role-playing-apc-multilingual-relevance](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-relevance) (多语言)
 
-合成的人设-回应自然语言推理数据集: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli) (English), [KomeijiForce/role-playing-apc-multilingual-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-nli) (Multilingual)
+合成的人设-回应自然语言推理数据集: [KomeijiForce/role-playing-apc-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-nli) (英文), [KomeijiForce/role-playing-apc-multilingual-nli](https://huggingface.co/datasets/KomeijiForce/role-playing-apc-multilingual-nli) (多语言)
 
-人设-用户语句相关性分类器: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character) (English), [KomeijiForce/xlm-roberta-large-relevance-multilingual-12character](https://huggingface.co/datasets/KomeijiForce/xlm-roberta-large-relevance-multilingual-12character) (Multilingual)
+人设-用户语句相关性分类器: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character) (英文), [KomeijiForce/xlm-roberta-large-relevance-multilingual-12character](https://huggingface.co/datasets/KomeijiForce/xlm-roberta-large-relevance-multilingual-12character) (多语言)
 
-人设-回应自然语言推理分类器: [KomeijiForce/xlm-roberta-large-nli-multilingual-12character](https://huggingface.co/KomeijiForce/xlm-roberta-large-nli-multilingual-12character)
-
+人设-回应自然语言推理分类器: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character) (英文), [KomeijiForce/xlm-roberta-large-nli-multilingual-12character](https://huggingface.co/KomeijiForce/xlm-roberta-large-nli-multilingual-12character) (多语言)
 ### PRP数据集统计性质
 
-| Character | Persona Statements | Questions | Relevance Data | NLI Data |
+| 角色 | 人设陈述 | 采访问题 | 相关性数据 | 推理数据 |
 |-----------|--------------------|-----------|----------------|----------|
 | Alice     | 8                  | 10        | 64             | 144      |
 | Bob       | 19                 | 10        | 152            | 459      |
