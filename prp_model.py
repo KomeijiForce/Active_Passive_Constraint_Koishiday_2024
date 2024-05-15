@@ -75,6 +75,25 @@ def generate_rag_dpo_dataset(character, prp_model, prp_tokenizer, relevance_disc
             
     return dataset
 
+def retrieval_augmented_generate_zh(character, statements, query, prp_model, prp_tokenizer, discriminator, rag_top_k):
+
+    system_prompt = f"你是一个扮演“{character}”的AI, 你应当扮演“{character}”回应用户，而不是作为一个AI。"
+    
+    scores = [score_relevance(character, statement, query, discriminator)[1].item() for statement in statements]
+    retrieval_augmented_context = "\n".join([statements[idx] for idx in np.argsort(scores)[::-1][:rag_top_k]])
+    
+    system_prompt = retrieval_augmented_context+"\n"+system_prompt
+    input_text = f"<start_of_turn>model\n{system_prompt}<end_of_turn>\n<start_of_turn>user\n{query}<end_of_turn>\n<start_of_turn>model\n"
+    input_ids = prp_tokenizer(input_text, return_tensors="pt").to("cuda")
+
+    outputs = prp_model.sample(**input_ids, max_new_tokens=256, temperature=1.0)
+    response = prp_tokenizer.decode(outputs[0])
+    if not response.endswith("<eos>"):
+        response = response + "<eos>"
+    response = re.findall("\n<start_of_turn>model\n(.*)?<eos>", response, re.DOTALL)[0] + "<eos>"
+    
+    return input_text, response
+
 def train_prp(character, prp_model, prp_tokenizer, prp_scale, rag_dpo_dataset, lora_rank, prp_dpo_epoch):
     
     lora_config = LoraConfig(
