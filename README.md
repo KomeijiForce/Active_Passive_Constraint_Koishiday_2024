@@ -162,7 +162,7 @@ The synthesized dataset for statement-to-response NLI: [KomeijiForce/role-playin
 
 The fine-tuned DeBERTa-V3-Large discriminator for statement-query relevance: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-relevance-12character) (English), [KomeijiForce/xlm-roberta-large-relevance-multilingual-12character](https://huggingface.co/datasets/KomeijiForce/xlm-roberta-large-relevance-multilingual-12character) (Multilingual)
 
-The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/xlm-roberta-large-nli-multilingual-12character](https://huggingface.co/KomeijiForce/xlm-roberta-large-nli-multilingual-12character)
+The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [KomeijiForce/deberta-v3-large-relevance-12character](https://huggingface.co/KomeijiForce/deberta-v3-large-nli-12character) (English), [KomeijiForce/xlm-roberta-large-nli-multilingual-12character](https://huggingface.co/KomeijiForce/xlm-roberta-large-nli-multilingual-12character) (Multilingual)
 
 ### Statistics of the PRP datasets
 
