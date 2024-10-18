@@ -93,3 +93,58 @@ print([score_APC(character, statements, query, response, relevance_discriminator
 
 # [1.6079180240631104, 0.9955980777740479, 0.03315635025501251]
 ```
+
+以上にスコアによって，APCスコアはどうPRPの忠実度を反応するのは初歩的な印象を残します。
+
+### AIキャラとチャットしましょう！
+
+APCに基づいたDPOを実行した後、あなたのキャラクターのLoRAウェイトは```prp_models/gemma-1.1-7b-it-lora-{character}-rag-dpo```に保存されます。これを使用してAIキャラクターとのチャットが可能になります。```chat_example.py```でサンプルも以下の通りに提供されています。
+
+```python
+import os
+import json
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
+from prp_model import retrieval_augmented_generate
+from classifier import get_relevance_discriminator
+
+character = "Your Character"
+
+statements = [data["statement"] for data in json.load(open(f"statement/{character}.json"))]
+
+model_id = f"prp_models/gemma-1.1-7b-it-lora-{character}-rag-dpo"
+
+bnb_config = BitsAndBytesConfig(
+    load_in_4bit=True,
+    bnb_4bit_quant_type="nf4",
+    bnb_4bit_compute_dtype=torch.bfloat16
+)
+
+prp_tokenizer = AutoTokenizer.from_pretrained(model_id)
+prp_model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb_config, device_map={"":0})
+
+relevance_discriminator = get_relevance_discriminator(character=None, statement_query_relevance_dataset=None, relevance_finetune_epoch=None, use_pretrained_discriminator=True)
+
+print(f"You are chatting with {character}!")
+
+with torch.no_grad():
+    
+    while True:
+    
+        _, response = retrieval_augmented_generate(character, statements, input('User: '), prp_model, prp_tokenizer, relevance_discriminator, rag_top_k=5)
+        response = character+": "+response.replace("<eos>", "")
+        print(response)
+```
+
+以下の例は古明地こいしとのチャット:
+
+```
+User: Hi, Koishi! What is your ability?
+Komeiji Koishi: I call it the "Silent Whisperer." It allows me to manipulate the unconsciousness of others, making me invisible and granting me control over their actions.
+User: Where do you live?
+Komeiji Koishi: The Palace of the Earth Spirits serves as my humble abode.
+User: Who is your sister?
+Komeiji Koishi: Satori Komeiji. The one with all the serious face. 😜
+```
+
+現在、私たちの論文で議論されているテーマの範囲により、システムは単一ターンの対話のみをサポートしています。今後、複数ターンの対話をサポートするために、さらなる技術的努力を投入する予定です！
