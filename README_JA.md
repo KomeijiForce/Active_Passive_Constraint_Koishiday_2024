@@ -28,3 +28,68 @@
 
 
 したがって、上記のパイプラインを使用して、合成データセットからGPT-4を精製することにより、そのような推定器を構築します。これまでのところ、グローバルなPRP忠実度の定量化と最適化のパズルは完成しています。では、忠実なPRPエージェントを構築する旅にお祝いを！
+
+## 事前準備
+
+旅立つ前に、以下の事項を整えるのが必要です。
+
+この[ページ](https://docs.anaconda.com/free/miniconda/miniconda-install/)の指示に従ってMiniConda3をインストールしましょう。
+
+この[ページ](https://openai.com/index/openai-api/)の指示に従ってOpenAIアカウントを作成してOpenAI APIを申し込みましょう。
+
+この[ページ](https://huggingface.co/settings/tokens)の指示に従ってHuggingfaceアカウントを作成して読み込みTokenを申し込みましょう。
+
+このリポはGemma-1.1-7b-itに基づいて実現しました、この[ページ](https://huggingface.co/google/gemma-1.1-7b-it)の指示に従ってGemmaモデルへのアクセスを申し込むことが必要な点にご注意ください。
+
+## ファストスタート
+
+### APCに基づいたDPOでRAGモデルを学習させる
+
+最も忠実的なパーソナ主導型ロールプレイエージェントの学習シナリオを簡単なbash命令にしました。 ```bash_is_all_you_need.sh```中の```openai_key``` と ```hf_token```は自分のトーケンに入れ替えて、そして
+```bash
+bash bash_is_all_you_need.sh
+```
+
+このコマンドはAliceに（```wiki```にもっと詳しく）APCに基づいたDPOでRAGシステムを作り出します。そして```prp_models```フォルダにPRPエージェントのLoRAパラメーターが保存されて、```statement```フォルダに生成されたデータセットも保存されて、```discriminators```フォルダにディスクリミネーターも保存されました（```use_pretrained_discriminator```をFalseにした場合）。
+
+好きなキャラクターの高度なPRPシステムを構築するには、wikiテキスト（段落は```\n\n```で区切ります）を```wiki```フォルダに配置し、ファイル名を {character_name}_wiki.txt としてください。その後、```bash_is_all_you_need.sh```内の character を該当するキャラクターに入れ換え、スクリプトを実行します。必要なものは、対応するディレクトリに全て生成されます。
+
+GPUの最適化
+GPUの利用は最適化されていますが、このbashコマンドを実行するには40GB以上のGPUメモリが必要です。
+
+推奨パラメータ
+```model_engine```: "gpt-4"
+提示（プロンプト）はGPT-4専用に設計されています。他のLLMを使用するとエラーが発生する可能性があります。
+
+```use_pretrained_discriminator```: True
+通常、有効にして生成の関連性とNLI（自然言語推論）データセットのコストを削減します。（それでもキャラクターのステートメントとユーザーからのクエリの生成は必要です。）
+
+```prp_scale```: "7b"、"2b"
+Gemmaモデルは、役割の演じ分けを常に拒否するため、こちらのスケールを使用します。
+
+```max_dpo_data```: 100
+約100個のキャラクターステートメントでDPOデータセットを構築する場合、通常1時間以内に完了します。
+
+```lora_rank```: 32以上
+LoRAランクが低すぎると、キャラクターの演じ分け性能が低下します。
+
+```rag_top_k```: 4～6
+分析の結果、この範囲で最良の性能が得られることが示されています。
+
+APCスコアでリスポンスを評価する
+```score.py```ファイルには```classifier.py```中に学習されたディスクリミネーターはAPCスコアを実現することが可能です。```score_APC```ファンクションに基づいて、すべてのペルソナステートメントによるエージェントの忠実度が判明できます，```evaluation_example.py```に以下の通りにユースケースも提供されました。
+```python
+from classifier import Classifier, get_relevance_discriminator, get_nli_discriminator
+from score import score_apc, score_APC
+
+relevance_discriminator = get_relevance_discriminator(character=None, statement_query_relevance_dataset=None, relevance_finetune_epoch=None, use_pretrained_discriminator=True)
+nli_discriminator = get_nli_discriminator(character=None, statement_to_response_nli_v2_dataset=None, nli_finetune_epoch=None, use_pretrained_discriminator=True)
+
+character = "Komeiji Koishi"
+statements = ["Komeiji Koishi lives with her sister, Komeiji Satori.", "Komeiji Koishi lives in Chireiden."]
+query = "Where do you live, Koishi?"
+responses = ["I live in Chireiden with my sister, Satori!", "I live in Chireiden!", "I live in Hakurei Shrine!"]
+print([score_APC(character, statements, query, response, relevance_discriminator, nli_discriminator).item() for response in responses])
+
+# [1.6079180240631104, 0.9955980777740479, 0.03315635025501251]
+```
