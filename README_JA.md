@@ -54,10 +54,10 @@ bash bash_is_all_you_need.sh
 
 好きなキャラクターの高度なPRPシステムを構築するには、wikiテキスト（段落は```\n\n```で区切ります）を```wiki```フォルダに配置し、ファイル名を {character_name}_wiki.txt としてください。その後、```bash_is_all_you_need.sh```内の character を該当するキャラクターに入れ換え、スクリプトを実行します。必要なものは、対応するディレクトリに全て生成されます。
 
-GPUの最適化
+### GPUの最適化
 GPUの利用は最適化されていますが、このbashコマンドを実行するには40GB以上のGPUメモリが必要です。
 
-推奨パラメータ
+### 推奨パラメータ
 ```model_engine```: "gpt-4"
 提示（プロンプト）はGPT-4専用に設計されています。他のLLMを使用するとエラーが発生する可能性があります。
 
@@ -76,7 +76,7 @@ LoRAランクが低すぎると、キャラクターの演じ分け性能が低�
 ```rag_top_k```: 4～6
 分析の結果、この範囲で最良の性能が得られることが示されています。
 
-APCスコアでリスポンスを評価する
+### APCスコアでリスポンスを評価する
 ```score.py```ファイルには```classifier.py```中に学習されたディスクリミネーターはAPCスコアを実現することが可能です。```score_APC```ファンクションに基づいて、すべてのペルソナステートメントによるエージェントの忠実度が判明できます，```evaluation_example.py```に以下の通りにユースケースも提供されました。
 ```python
 from classifier import Classifier, get_relevance_discriminator, get_nli_discriminator
