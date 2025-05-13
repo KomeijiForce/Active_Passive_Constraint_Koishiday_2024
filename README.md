@@ -314,10 +314,24 @@ The fine-tuned DeBERTa-V3-Large discriminator for statement-to-response NLI: [Ko
 ## Citation
 
 ```bibtex
-@article{apc4prp,
-  title={Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing},
-  author={Peng, Letian and Shang, Jingbo},
-  journal={arXiv preprint arXiv:2405.07726},
-  year={2024}
+@inproceedings{APC,
+  author       = {Letian Peng and
+                  Jingbo Shang},
+  editor       = {Amir Globersons and
+                  Lester Mackey and
+                  Danielle Belgrave and
+                  Angela Fan and
+                  Ulrich Paquet and
+                  Jakub M. Tomczak and
+                  Cheng Zhang},
+  title        = {Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing},
+  booktitle    = {Advances in Neural Information Processing Systems 38: Annual Conference
+                  on Neural Information Processing Systems 2024, NeurIPS 2024, Vancouver,
+                  BC, Canada, December 10 - 15, 2024},
+  year         = {2024},
+  url          = {http://papers.nips.cc/paper\_files/paper/2024/hash/309cadc33589efca4018a490c07db263-Abstract-Conference.html},
+  timestamp    = {Thu, 13 Feb 2025 16:56:43 +0100},
+  biburl       = {https://dblp.org/rec/conf/nips/PengS24.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
 }
 ```
