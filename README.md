@@ -6,7 +6,7 @@
 
 **[Update]** APC is accepted to **NeurIPS2024**! 💚
 
-## Introduction [\[Paper\]](https://arxiv.org/abs/2405.07726)
+## Introduction [\[Paper\]](https://arxiv.org/abs/2405.07726) [\[NeurIPS Version\]](https://neurips.cc/virtual/2024/poster/94451)
 
 Persona-driven Role-playing (PRP) is so cool that it allows you to build AI characters with several short paragraphs to describe the persona (人设/設定)! However, how to keep the AI character faithfully to **ALL** persona statements is a hard problem. PRP agents always make bunches of mistakes or are always vague about the knowledge they should know. 
 
